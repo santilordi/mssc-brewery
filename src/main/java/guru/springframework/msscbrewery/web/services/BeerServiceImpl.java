@@ -1,4 +1,4 @@
-package guru.springframework.msscbrewery.services;
+package guru.springframework.msscbrewery.web.services;
 
 import guru.springframework.msscbrewery.web.model.BeerDto;
 import org.springframework.stereotype.Service;
@@ -25,5 +25,10 @@ public class BeerServiceImpl implements BeerService {
         return BeerDto.builder()
                 .id(UUID.randomUUID())
                 .build();
+    }
+
+    @Override
+    public void updateBeer(UUID beerId, BeerDto beerDto) {
+        //TODO
     }
 }

@@ -1,6 +1,6 @@
 package guru.springframework.msscbrewery.web.controller;
 
-import guru.springframework.msscbrewery.services.BeerService;
+import guru.springframework.msscbrewery.web.services.BeerService;
 import guru.springframework.msscbrewery.web.model.BeerDto;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -33,6 +33,13 @@ public class BeerController {
         httpHeaders.add("Location", "api/v1/beer" + saveDto.getId().toString());
 
         return new ResponseEntity<>(httpHeaders, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{beerId}")
+    public ResponseEntity<BeerDto> handleUpdate (@PathVariable("beerId") UUID beerId, BeerDto beerDto){
+        beerService.updateBeer(beerId, beerDto);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 }
