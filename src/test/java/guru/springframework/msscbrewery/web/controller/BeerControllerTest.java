@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.UUID;
 
+import static guru.springframework.msscbrewery.web.model.BeerStyleEnum.PALE_ALE;
 import static org.hamcrest.core.Is.is;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
@@ -41,7 +42,7 @@ public class BeerControllerTest {
     public void setUp() {
         validBeer = BeerDto.builder().id(UUID.randomUUID())
                 .beerName("Beer1")
-                .beerStyle("PALE_ALE")
+                .beerStyle(PALE_ALE)
                 .upc(123456789012L)
                 .build();
     }
